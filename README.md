@@ -93,3 +93,13 @@ Now that you’ve edited your configuration variables and know how to customize 
 # options: dev, prod
 npm run dev
 ```
+
+Deploy:
+
+```bash
+git add build_production -f && git commit -m "Build for deploy"
+```
+
+```bash
+git subtree push --prefix build_production origin gh-pages
+```
