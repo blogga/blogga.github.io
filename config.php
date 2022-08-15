@@ -3,16 +3,16 @@
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl' => '',
-    'production' => false,
-    'siteName' => 'Blog Starter Template',
+    'baseUrl' => 'https://blogga.github.io',
+    'production' => true,
+    'siteName' => 'Blogga Starter',
     'siteDescription' => 'Generate an elegant blog with Jigsaw',
-    'siteAuthor' => 'Author Name',
+    'siteAuthor' => 'Muath',
 
     // collections
     'collections' => [
         'posts' => [
-            'author' => 'Author Name', // Default author, if not provided in a post
+            'author' => 'Muath', // Default author, if not provided in a post
             'sort' => '-date',
             'path' => 'blog/{filename}',
         ],
