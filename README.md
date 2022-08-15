@@ -97,6 +97,14 @@ npm run dev
 Deploy:
 
 ```bash
+npm run prod
+```
+
+```bash
+./vendor/bin/jigsaw build
+```
+
+```bash
 git add build_production -f && git commit -m "Build for deploy"
 ```
 
