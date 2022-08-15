@@ -1,17 +1,20 @@
 const mix = require('laravel-mix');
+require('laravel-mix-jigsaw');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel applications. By default, we are compiling the CSS
- | file for the application as well as bundling up all the JS files.
- |
- */
+mix.disableSuccessNotifications();
+mix.setPublicPath('source/assets/build');
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.jigsaw()
+    .js('source/_assets/js/main.js', 'js').vue()
+    .css('source/_assets/css/main.css', 'css/main.css', [
+        require('postcss-import'),
+        require('tailwindcss/nesting'),
+        require('tailwindcss'),
+    ])
+    .options({ processCssUrls: false })
+    .browserSync({
+        server: 'build_local',
+        files: ['build_local/**'],
+    })
+    .sourceMaps()
+    .version();
